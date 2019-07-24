@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .wrap {
+            width: 1280px;
+            height: 800px;
+            background-color: #293B29;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            position: relative;
+        }
+
+        .shell {
+            width: 350px;
+            height: 350px;
+        }
+
+        .dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 30%;
+            background: #ffffff;
+            z-index: 2;
+            position: absolute;
+        }
+
+        .img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-image: url('clock-bg.svg');
+            width: 550px;
+            height: 550px;
+            background-size: 550px 550px;
+        }
+
+        .img_rotate {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hour,
+        .minute,
+        .second {
+            width: 100%;
+            height: 100%;
+            display: inline-flex;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            transform: rotate(0deg);
+
+        }
+
+        .hour_line {
+            width: 13px;
+            height: 60px;
+            background-color: #c35329;
+            border-radius: 15px;
+            transform: translateY(-50%);
+        }
+
+        .minute_line {
+            width: 9px;
+            height: 95px;
+            background-color: red;
+            border-radius: 10px;
+            transform: translateY(-50%);
+
+        }
+
+        .second_line {
+            width: 2px;
+            height: 120px;
+            background-color: #b1ff00;
+            border-radius: 5px;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap">
+        <div class="img">
+            <div class="img_rotate">
+                <div class="dot"></div>
+                <div class="hour">
+                    <div class="hour_line"></div>
+                </div>
+                <div class="minute">
+                    <div class="minute_line"></div>
+                </div>
+                <div class="second">
+                    <div class="second_line"></div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- <img class="img" src="clock-bg.svg" alt="" srcset=""> -->
+        <!-- <object class="img" data="clock-bg.svg" type="image/svg+xml">   </object> -->
+
+
+
+        <!-- <div class="shell">
+            <div class="circle"></div>
+        </div> -->
+    </div>
+    <script>
+        // document.querySelector('body').style.height = window.innerHeight + 'px';
+
+        function nowdate() {
+            let now_time = new Date();
+
+            let now_hour = now_time.getHours();
+            let now_minution = now_time.getMinutes();
+            let now_seconed = now_time.getSeconds();
+            // console.log(now_time);
+            // console.log(now_hour);
+            // console.log((now_hour * 30) % 360 );
+            console.log(now_minution * 60 /30);
+            // console.log(now_seconed);
+            if (now_hour > 12) {
+                now_hour -= 12;
+            }
+
+            // document.querySelector('.hour').style.transform = 'rotate(' + ((now_hour * 30) % 360 + (30 / 60 * now_minution)) + 'deg)';
+            // document.querySelector('.minute').style.transform = 'rotate(' + ((now_minution * 6) % 360 + (6 / 60 * now_seconed)) + 'deg)';
+
+             document.querySelector('.hour').style.transform = 'rotate(' + ((now_hour * 30) % 360) + 'deg)';
+            var houtdeg =  document.querySelector('.hour').style.transform;
+            document.querySelector('.minute').style.transform = 'rotate(' + ((now_minution * 6)) % 360 + 'deg)';
+            var minutedeg = document.querySelector('.minute').style.transform;
+            // console.log('minutedeg:', minutedeg);
+            document.querySelector('.second').style.transform = 'rotate(' + ((now_seconed * 6)) % 360 + 'deg)';
+        };
+
+        setInterval(nowdate, 1000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+*, *:before, *:after{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif;;
+    background: #E8E8E8;
+    padding: 100px;
+}
+.calculator{
+    width: 350px;
+    margin: 0 auto;
+}
+.top{
+    background: #041936;
+    padding: 16px 20px 8px 20px;
+    border-radius: 20px 20px 0px 0px;
+}
+.temp{
+    width: 310px;
+    height: 19px;
+    font-size: 16px;
+    color: #00C4FF;
+    text-align: right;
+    line-height: 19px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.temp div{
+    white-space: nowrap;
+}
+.input{
+    color: #FFFFFF;
+    text-align: right;
+    line-height: 66px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 310px;
+    height: 66px;
+}
+.input div{
+    font-size: 56px;
+}
+.main{
+    background: #072144;
+    border-radius: 0px 0px 20px 20px;
+    padding: 16px 8px;
+    display: flex;
+    flex-direction: column;
+}
+.main div{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+.main div:last-child{
+    margin-bottom: 0px;
+}
+.main div a{
+    color:#FFFFFF;
+    font-size: 24px;
+    text-decoration: none;
+}
+.number{
+    font-weight: 300;
+}
+.number, .operator, .allClear, .back{
+    width: 72px;
+    height: 64px;
+    text-align: center;
+    line-height: 64px;
+    border-radius: 16px;
+}
+.number:hover, .operator:hover{
+    background: #6C00FF;
+}
+.operator{
+    background: #041936;
+    border-radius: 16px;
+    font-weight: 500;
+}
+.main div .allClear, .main div .back{
+    color: #00C4FF;
+    font-weight: 500;
+}
+.operator:hover, .main div .allClear:hover, .main div .back:hover{
+    background: #00C4FF;
+    color: #fff;
+}
+.back{
+    padding-right: 6px;
+}
+.equal{
+    width: 155px;
+    height: 64px;
+    padding-right: 30px;
+    line-height: 64px;
+    text-align: right;
+    background: linear-gradient(to right, #00C4FF, #6C00FF);
+    border-radius: 16px;
+    font-weight: 500;
+}
+.equal:hover{
+    background: linear-gradient(to right, #6C00FF , #00C4FF);    
+}

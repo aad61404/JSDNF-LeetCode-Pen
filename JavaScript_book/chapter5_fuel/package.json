@@ -1,0 +1,20 @@
+{
+  "name": "JavaScript_trainee",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000J\u0000a\u0000v\u0000a\u0000S\u0000c\u0000r\u0000i\u0000p\u0000t\u0000_\u0000b\u0000o\u0000o\u0000k\u0000\r\u0000 \u0000",
+  "main": "fuel.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aad61404/JavaScript_book.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aad61404/JavaScript_book/issues"
+  },
+  "homepage": "https://github.com/aad61404/JavaScript_book#readme"
+}

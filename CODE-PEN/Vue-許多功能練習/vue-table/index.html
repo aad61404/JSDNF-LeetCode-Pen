@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+    <style>
+        .table th.click {
+            cursor: pointer;
+        }
+
+        .table th.click {
+            cursor: pointer;
+        }
+
+        .icon {
+            display: inline-block;
+        }
+
+        .icon.inverse {
+            transform: rotate(180deg)
+        }
+    </style>
+</head>
+
+<div id="app">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>品名</th>
+                <th class="click" @click="changeReverse(); showPrice();">價格
+                    <!-- isReverse 為反轉 className -->
+                    <span class="icon isReverse" :class="{inverse : isReverse}" v-if="show =='price'">
+                        <i class=" fas fa-angle-up text-success"></i>
+                    </span>
+                </th>
+                <th class="click" @click="changeDate(); showExpiryDate();">到期日
+                    <span class="icon isReverse" :class="{inverse : dataReverse}" v-if="show == 'expiryDate'">
+                        <i class=" fas fa-angle-up text-success"></i>
+                    </span>
+                </th>
+            </tr>
+            <tr v-for="item in data">
+                <td>{{ item.name }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.expiryDate }}</td>
+            </tr>
+        </thead>
+    </table>
+
+    <p style="display : none;"> {{ SortArray }} </p>
+</div>
+
+<body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.22/vue.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                data: [{
+                        name: '巧呼呼蘇打水',
+                        price: 30,
+                        expiryDate: 90
+                    },
+                    {
+                        name: '心驚膽跳羊肉飯',
+                        price: 65,
+                        expiryDate: 2
+                    },
+                    {
+                        name: '郭師傅武功麵包',
+                        price: 32,
+                        expiryDate: 1
+                    },
+                    {
+                        name: '不太會過期的新鮮牛奶',
+                        price: 75,
+                        expiryDate: 600
+                    },
+                    {
+                        name: '金殺 巧粒粒',
+                        price: 120,
+                        expiryDate: 200
+                    }
+                ],
+                isReverse: false,
+                dataReverse: false,
+                sortData: '',
+                show: '',
+            },
+
+            methods: {
+                changeReverse: function () {
+                    return this.isReverse = !this.isReverse;
+                },
+                changeDate: function () {
+                    return this.dataReverse = !this.dataReverse;
+                },
+                showPrice: function () {
+                    return this.show = 'price';
+                },
+                showExpiryDate: function () {
+                    return this.show = 'expiryDate';
+                }
+            },
+            computed: {
+                SortArray: function () {
+                    var vm = this;
+                    var sortData = [];
+                    sortData = vm.data;
+                    if (vm.isReverse == true && vm.show == 'price') {
+                        sortData = sortData.sort(function (a, b) {
+                            return a.price - b.price;
+                        })
+                    } else if (vm.isReverse == false && vm.show == 'price') {
+                        sortData = sortData.sort(function (a, b) {
+                            return b.price - a.price;
+                        })
+                    } else if (vm.dataReverse == true && vm.show == 'expiryDate') {
+                        sortData = sortData.sort(function (a, b) {
+                            return a.expiryDate - b.expiryDate;
+                        })
+                    } else if (vm.dataReverse == false && vm.show == 'expiryDate') {
+                        sortData = sortData.sort(function (a, b) {
+                            return b.expiryDate - a.expiryDate;
+                        })
+                    }
+
+                    return sortData;
+                },
+            }
+
+        });
+    </script>
+    <script src="all.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Simple Toast Message</h1>
+        <p>
+            No need to use bootstrap, but jQuery is required. Fully responsive.
+            You can set a timeout to close the toast message automatically.
+        </p>
+        <hr>
+        <p class="button">
+            <button class="btn btn-success" onclick="notification.show('hi there','success')">
+                Show Success
+            </button>
+            <button class="btn btn-danger" onclick="notification.show('Oops! Something went wrong.','danger')">
+                Show Error
+            </button>
+        </p>
+    </div>
+
+    <div class="toast-message">
+        <span class="close"></span>
+        <div class="message">
+            This is an Alert! But these are some junks to see how alert looks in long messages.
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="all.js"></script>
+</body>
+
+</html>
